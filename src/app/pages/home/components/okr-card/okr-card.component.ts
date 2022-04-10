@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Okrs } from 'src/app/models';
+import { Okr } from 'src/app/models';
 
 @Component({
   selector: 'app-okr-card',
@@ -8,11 +8,22 @@ import { Okrs } from 'src/app/models';
 })
 export class OkrCardComponent implements OnInit {
 
-  @Input() okrs: Okrs = [];
+  @Input() okr: Okr = {
+    objective: '',
+    progress: 0,
+    keyResults: [],
+    completed: false
+  };
+
+  public showKeyResults = false;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public handlerClick() {
+    this.showKeyResults = !this.showKeyResults;
   }
 
 }

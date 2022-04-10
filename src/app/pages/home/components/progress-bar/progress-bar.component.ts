@@ -1,11 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-
-enum BarStateEnum {
-  INITIAL = 0,
-  COMPLETED = 1
-}
-
-type BarState = 'init' | 'half' | 'completed';
+import { progress } from 'src/app/models';
 
 @Component({
   selector: 'app-progress-bar',
@@ -14,21 +8,32 @@ type BarState = 'init' | 'half' | 'completed';
 })
 export class ProgressBarComponent implements OnInit {
 
-  @Input() progress: number = 0;
+  @Input() progress: progress = 0;
 
-  public barState: string = 'progress-bar__line';
+  public progressBarClass: string = 'progress-bar__line';
 
   constructor() { }
 
   ngOnInit(): void {
-    const barProgress = this.calculateBarProgress(this.progress);
-    this.barState = `${this.barState} ${barProgress}`;
+    const progressClass = this.getProgressBarClass();
+    this.progressBarClass = `${this.progressBarClass} ${progressClass}`;
   }
 
-  private calculateBarProgress(progress: number): BarState {
-    if (progress === BarStateEnum.INITIAL) return 'init';
-    if (progress > BarStateEnum.INITIAL && progress < BarStateEnum.COMPLETED) return 'half';
-    return 'completed';
+  private getProgressBarClass(): string {
+    const barProgressClass = {
+      1: 'completed',
+      0.9: 'ninety',
+      0.8: 'eighty',
+      0.7: 'seventy',
+      0.6: 'sixty',
+      0.5: 'fifty',
+      0.4: 'forty',
+      0.3: 'thirty',
+      0.2: 'twenty',
+      0.1: 'ten',
+      0: 'init',
+    }
+    return barProgressClass[this.progress];
   }
 
 }

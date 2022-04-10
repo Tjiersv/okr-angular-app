@@ -2,5 +2,6 @@
     <h1>Mis OKRs</h1>
 </header>
 <section>
-    <app-okr-card [okrs]="okrs"></app-okr-card>
+    <app-okr-card *ngFor="let okr of okrs" [okr]="okr">
+    </app-okr-card>
 </section>

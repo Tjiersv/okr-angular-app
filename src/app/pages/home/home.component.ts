@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
       },
       {
         description: 'Crear el Backend en NodeJS',
-        progress: 0.5
+        progress: 0.3
       },
       {
         description: 'Guarda la data en Mongo',
