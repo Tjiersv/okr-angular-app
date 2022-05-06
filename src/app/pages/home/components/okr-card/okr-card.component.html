@@ -1,10 +1,10 @@
-<div class="okr-card" (click)="handlerClick()">
+<div class="okr-card">
     <h2 class="okr-card__objective">{{ okr.objective }}</h2>
     <app-progress-bar [progress]="okr.progress"></app-progress-bar>
-    <div class="okr-card__keyresults" *ngIf="showKeyResults">
-        <div *ngFor="let keyresult of okr.keyResults">
-            <h3 class="okr-card__keyresults__description">{{ keyresult.description }}</h3>
-            <app-progress-bar [progress]="keyresult.progress"></app-progress-bar>
-        </div>
-    </div>
+    <button class="btn" (click)="handlerClick()">Mostrar Keyresults</button>
+    <ul class="okr-card__keyresults" *ngIf="showKeyResults">
+        <li *ngFor="let keyresult of okr.keyResults">
+            <app-keyresult-card [keyResult]="keyresult"></app-keyresult-card>
+        </li>
+    </ul>
 </div>
