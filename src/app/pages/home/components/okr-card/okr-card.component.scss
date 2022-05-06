@@ -1,7 +1,7 @@
 @import '../../../../styles/variables.scss';
 
 .okr-card {
-    background-color: $white-color;
+    background-image: url('/assets/img/universe03.jpeg');
     border-radius: $radius-one;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
@@ -11,6 +11,11 @@
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     }
     
+    &__objective {
+        color: $white-color;
+        letter-spacing: 1px;
+        font-weight: 600;
+    }
 }
 
 .btn {
